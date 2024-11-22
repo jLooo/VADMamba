@@ -1,0 +1,24 @@
+ped2:   model1 pred  model2  recons
+model1:    ./exp/ped2/pred/16/log_1111/best_model1_97.778.pth
+model2:    ./exp/ped2/pred/16/log_1111/best_model2_95.691_97.937.pth
+mix:    model1 +  ./exp/ped2/pred/16/log_1111/best_model2_94.50_98.17.pth   1_0.5:  98.17
+
+
+avenue:
+model1:    ./exp/avenue/pred/16/log_2222/best_model1_86.198.pth
+model2:    ./exp/avenue/pred/16/log_2222/best_model2_87.165_88.725.pth
+mix: model1+model2     0.4_1:  88.88
+
+
+sht:
+model1:    ./exp/shanghaitech/pred/16/log_1111/best_model1_74.353.pth
+model2:    ./exp/shanghaitech/pred/16/log_1111_flow/best_model2_72.058.pth
+mix: model1+model2     1_0.3:  74.75
+
+
+
+
+
+
+avenue：
+best_model2_87.165_88.725.pth ——》87.2069
