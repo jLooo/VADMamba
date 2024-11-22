@@ -12,7 +12,6 @@ import numpy as np
 # from model.loss_func import Gradient_Loss, Test_Loss
 from model.vadm2 import vadm2
 import torch.nn.functional as F
-from model.vadm2_edit import *
 
 import torchvision.transforms as transforms
 import os
