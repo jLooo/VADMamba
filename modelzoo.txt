@@ -1,0 +1,25 @@
+https://drive.google.com/drive/folders/1ROr-T8IoZ7TLo-3PX7UmDU9_urTuxxCT?usp=sharing
+model1 pred  model2  recon
+
+ped2:  
+model1:    ./modelzoo/ped2/best_model1.pth
+model2:    ./modelzoo/ped2/best_model2.pth
+mix:    model1 +  ./modelzoo/mix_model2.pth   1_0.5:  98.17
+
+avenue:
+model1:    ./modelzoo/avenue/best_model1.pth
+model2:    ./modelzoo/avenue/best_model2.pth
+mix:    model1+model2     0.4_1:  88.88
+
+sht:
+model1:    ./modelzoo/sht/best_model1.pth
+model2:    ./modelzoo/sht/best_model2.pth
+mix:    model1+model2     1_0.3:  74.75
+
+
+
+
+
+
+avenue：
+best_model2_87.165_88.725.pth ——》87.2069
