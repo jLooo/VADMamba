@@ -149,9 +149,6 @@ def main():
 
     print('---------------------------------------------------------------------------------------------------------')
     if Task == 2:
-        # if early_stop['best_eval_auc'] > 0.8535:
-        #      model1_dir = os.path.join(log_dir, 'best_model1_.pth')
-        # else:
         model1_dir = os.path.join(log_dir, 'best_model1_.pth')
         model1.load_state_dict(torch.load(model1_dir).state_dict())
         model1.eval()
