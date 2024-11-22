@@ -13,4 +13,4 @@ Evaluate_flow_tst.py  #for a single task
 
 
 # Model weights
-VADMamba weights get from [Google](https://drive.google.com/drive/folders/1ROr-T8IoZ7TLo-3PX7UmDU9_urTuxxCT?usp=sharing).
+You can get VADMamba weights from [Google](https://drive.google.com/drive/folders/1ROr-T8IoZ7TLo-3PX7UmDU9_urTuxxCT?usp=sharing).
