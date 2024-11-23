@@ -17,7 +17,7 @@ import torchvision.transforms as transforms
 import os
 
 
-def Eval(model=None, stage='re'):
+def Eval(model=None, stage='Pred'):
     parser = argparse.ArgumentParser(description="VADMamba")
     parser.add_argument('--gpus', nargs='+', type=str, help='gpus')
     parser.add_argument('--test_batch_size', type=int, default=1, help='batch size for test')
