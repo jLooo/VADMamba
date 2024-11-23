@@ -16,4 +16,5 @@ Evaluate_flow_tst.py  #for a single task
 We will update the weights file later.
 
 
-![compara1](https://github.com/user-attachments/assets/0d8bce7e-25fb-4d8d-8c54-538e81880ccf)
+![compara](https://github.com/user-attachments/assets/0d8bce7e-25fb-4d8d-8c54-538e81880ccf)
+![vis](https://github.com/user-attachments/assets/74732ded-31f5-456e-ab79-5f083681489e)
