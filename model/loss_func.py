@@ -54,6 +54,14 @@ def ssim(img1, img2):
                                                             (sigma1_sq + sigma2_sq + C2))
     return ssim_map.mean()
 
+def Difference_loss(pred_diff, true_diff, epsilon=1e-3):
+
+    diff_pred = torch.norm(pred_diff, p=2, dim=(1, 2, 3))
+    diff_true = torch.norm(true_diff, p=2, dim=(1, 2, 3))
+    loss = torch.sqrt((diff_pred - diff_true) ** 2 + epsilon ** 2).mean()
+
+    return loss
+
 class Gradient_Loss(nn.Module):
     def __init__(self, channels=1, alpha=1):
         super(Gradient_Loss, self).__init__()
