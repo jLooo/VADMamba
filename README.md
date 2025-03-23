@@ -5,4 +5,4 @@ Overview of the proposed VADMamba. (a) The training and inference process of VAD
 
 The code coming soon. This part code is adjusted from [VM-UNet](https://github.com/JCruan519/VM-UNet).
 
-
+Flownet2 model: https://github.com/NVIDIA/flownet2-pytorch
