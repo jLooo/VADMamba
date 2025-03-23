@@ -54,27 +54,6 @@ def ssim(img1, img2):
                                                             (sigma1_sq + sigma2_sq + C2))
     return ssim_map.mean()
 
-
-import numpy as np
-
-
-def Difference_loss(pred_diff, true_diff, epsilon=1e-3):
-
-    diff_pred = torch.norm(pred_diff, p=2, dim=(1, 2, 3))
-    diff_true = torch.norm(true_diff, p=2, dim=(1, 2, 3))
-    loss = torch.sqrt((diff_pred - diff_true) ** 2 + epsilon ** 2).mean()
-
-    return loss
-#
-#
-# # Example usage:
-# predicted_images = [np.random.rand(64, 64) for _ in range(10)]
-# true_images = [np.random.rand(64, 64) for _ in range(10)]
-#
-# loss = compute_loss(predicted_images, true_images)
-# print("Computed Loss:", loss)
-
-
 class Gradient_Loss(nn.Module):
     def __init__(self, channels=1, alpha=1):
         super(Gradient_Loss, self).__init__()
@@ -97,75 +76,3 @@ class Gradient_Loss(nn.Module):
         grad_diff_y = torch.abs(gt_dy - gen_dy)
 
         return grad_diff_x ** self.alpha + grad_diff_y ** self.alpha
-
-
-class Test_Loss(nn.Module):
-    def __init__(self, channels=1, ks=(16, 8), alpha=1):
-        super(Test_Loss, self).__init__()
-        self.alpha = alpha
-        self.ks = ks
-        self.c = channels
-        self.filter = torch.ones((1, 1, ks[0], ks[1]), dtype=torch.float32).cuda().repeat(1, channels, 1, 1) / (
-                    ks[0] * ks[1])
-
-    def forward(self, gen_frames):
-        shape = gen_frames.size()
-        b, w, h = shape[0], shape[-2], shape[-1]
-        gen_frames = nn.functional.pad(gen_frames.abs().view(b, self.c, w, h),
-                                       (self.ks[1], self.ks[1], self.ks[0], self.ks[0]))
-        gen_dx = nn.functional.conv2d(gen_frames, self.filter).max()
-
-        return gen_dx
-
-class CharbonnierPenalty(nn.Module):
-    def __init__(self, epsilon=1e-3):
-        super(CharbonnierPenalty, self).__init__()
-        self.epsilon = epsilon
-
-    def forward(self, x1, x2):
-        return torch.sqrt((x1 - x2)**2 + self.epsilon**2)
-
-
-class BCELoss(nn.Module):
-    def __init__(self):
-        super(BCELoss, self).__init__()
-        self.bceloss = nn.BCELoss()
-
-    def forward(self, pred, target):
-        size = pred.size(0)
-        pred_ = pred.view(size, -1)
-        target_ = target.view(size, -1)
-
-        return self.bceloss(pred_, target_)
-
-
-class DiceLoss(nn.Module):
-    def __init__(self):
-        super(DiceLoss, self).__init__()
-
-    def forward(self, pred, target):
-        smooth = 1
-        size = pred.size(0)
-
-        pred_ = pred.view(size, -1)
-        target_ = target.view(size, -1)
-        intersection = pred_ * target_
-        dice_score = (2 * intersection.sum(1) + smooth)/(pred_.sum(1) + target_.sum(1) + smooth)
-        dice_loss = 1 - dice_score.sum()/size
-
-        return dice_loss
-
-class BceDiceLoss(nn.Module):
-    def __init__(self, wb=1, wd=1):
-        super(BceDiceLoss, self).__init__()
-        self.bce = BCELoss()
-        self.dice = DiceLoss()
-        self.wb = wb
-        self.wd = wd
-
-    def forward(self, pred, target):
-        bceloss = self.bce(pred, target)
-        diceloss = self.dice(pred, target)
-
-        loss = self.wd * diceloss + self.wb * bceloss
-        return loss
