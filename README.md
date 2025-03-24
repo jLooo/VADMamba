@@ -1,4 +1,4 @@
-# VADMamba: Exploring State Space Models for Fast Video Anomaly Detection
+# VADMamba: Exploring State Space Models for Fast Video Anomaly Detection (Accepted by ICME2025)
 ![VADMamba](https://github.com/user-attachments/assets/04ba4616-c5bf-4e23-a796-b759e0fb3645)
 
 Overview of the proposed VADMamba. (a) The training and inference process of VADMamba. (b) The framework of the proposed VQ-MaU. (c) Non-negative Vision State Space block. The dashed line indicates that addition is used in the second loop. (d) Vision State-Space (VSS) with SS2D.
