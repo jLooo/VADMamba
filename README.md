@@ -6,3 +6,13 @@ Overview of the proposed VADMamba. (a) The training and inference process of VAD
 Flownet2 model: https://github.com/NVIDIA/flownet2-pytorch
 
 This part code is adjusted from [VM-UNet](https://github.com/JCruan519/VM-UNet).
+
+
+If you use this work, please cite:
+
+@article{lyu2025vadmamba,
+  title={VADMamba: Exploring State Space Models for Fast Video Anomaly Detection},
+  author={Lyu, Jiahao and Zhao, Minghua and Hu, Jing and Huang, Xuewen and Chen, Yifei and Du, Shuangli},
+  journal={arXiv preprint arXiv:2503.21169},
+  year={2025}
+}
