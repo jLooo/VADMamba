@@ -7,7 +7,7 @@ Flownet2 model: https://github.com/NVIDIA/flownet2-pytorch
 
 This part code is adjusted from [VM-UNet](https://github.com/JCruan519/VM-UNet).
 
-You can download the pretrained weights of BiSP for the four datasets from [Google](https://drive.google.com/drive/folders/14GMpQkXNm4WQg5LlNY05eR5idzWspEUj?usp=sharing).
+You can download the pretrained weights of VADMamba for the four datasets from [Google](https://drive.google.com/drive/folders/14GMpQkXNm4WQg5LlNY05eR5idzWspEUj?usp=sharing).
 
 If you use this work, please cite:
 ```
